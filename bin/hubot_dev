@@ -1,8 +1,10 @@
 #!/bin/sh
 
+. ./.env.sh
 redis-server dev_redis.conf
 
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
+# exec node_modules/.bin/hubot --adapter hipchat "$@"
 exec node_modules/.bin/hubot "$@"

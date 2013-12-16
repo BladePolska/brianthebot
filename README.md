@@ -8,7 +8,9 @@ Description.
 
 ## Developing Brian
 1. You need Redis and Hubot installed. 
-1. Rename `example_config.json` to `config.json`. **Store all your credentials there.**
+1.1. Dependencies for HipChat adapter: `brew install icu4c` `brew link icu4c`. 
+1. Create and setup `.env` **Store all your confidential stuff there.** All env variables will be loaded for you in `hubot_dev`. 
+1.1 Use example from `env_example`.
 2. run `./bin/hubot_dev`. It will run local redis for you using dev_redis.conf present in the directory. Please see that Redis will run daemonised. 
 3. Develop. If everything is cool, push to master. 
 4. Updated our Brian on Heroku by pushing to it. 
