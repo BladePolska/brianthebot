@@ -1,3 +1,22 @@
+# Brian the bot
+
+Brian is HipChat bot based on [Hubot](http://hubot.github.com) used by [Balde Polska s.c.](http://www.bladepolska.com). Additional plugins are under development.
+
+## Plugins in this repository
+### Code review Asana task creator
+Description
+
+## Developing Brian
+1. You need Redis and Hubot installed. 
+1. Rename `example_config.json` to `config.json`. **Store all your credentials there.**
+2. run `./bin/hubot_dev`. It will run local redis for you using dev_redis.conf present in the directory. 
+3. Develop. If everything is cool, push to master. 
+4. Updated our Brian on Heroku by pushing to it. 
+
+
+## Original Hubot readme below
+---
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
