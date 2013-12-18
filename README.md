@@ -15,7 +15,6 @@ Description.
 3. Develop. If everything is cool, push to master. 
 4. Updated our Brian on Heroku by pushing to it. 
 
-
 ## Original Hubot readme below
 ---
 
