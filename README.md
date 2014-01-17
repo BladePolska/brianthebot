@@ -3,17 +3,17 @@
 Brian is HipChat bot based on [Hubot](http://hubot.github.com) used by [Balde Polska s.c.](http://www.bladepolska.com). Additional plugins are under development.
 
 ## Plugins in this repository
-### Code review Asana task creator
-Description. 
+### Grumpy cat
+
 
 ## Developing Brian
-1. You need Redis and Hubot installed. 
-    1. Dependencies for HipChat adapter: `brew install icu4c` `brew link icu4c`. 
-1. Create and setup `.env` **Store all your confidential stuff there.** All env variables will be loaded for you in while runnig `./bin/hubot_dev`. 
+1. You need Redis and Hubot installed.
+    1. Dependencies for HipChat adapter: `brew install icu4c` `brew link icu4c`.
+1. Create and setup `.env` **Store all your confidential stuff there.** All env variables will be loaded for you in while runnig `./bin/hubot_dev`.
     1. Use example from `env_example`.
-2. run `./bin/hubot_dev`. It will run local redis for you using dev_redis.conf present in the directory. Please see that Redis will run daemonised. 
-3. Develop. If everything is cool, push to master. 
-4. Updated our Brian on Heroku by pushing to it. 
+2. run `./bin/hubot_dev`. It will run local redis for you using dev_redis.conf present in the directory. Please see that Redis will run daemonised.
+3. Develop. If everything is cool, push to master.
+4. Updated our Brian on Heroku by pushing to it.
 
 ## Original Hubot readme below
 ---
@@ -159,7 +159,7 @@ UI.
     % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
 
 Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
+you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42`
 and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
 
     % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
