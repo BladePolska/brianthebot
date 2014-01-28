@@ -7,6 +7,8 @@
 # Browser dict example:
 #   {"os": "Windows", "os_version": "7", "browser_version": "8.0", "browser": "ie"}
 
+QS         = require 'querystring'
+
 api_url    = 'http://www.browserstack.com/screenshots'
 username   = process.env.HUBOT_BROWSERSTACK_USERNAME
 api_key    = process.env.HUBOT_BROWSERSTACK_API_KEY
