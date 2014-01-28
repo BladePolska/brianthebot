@@ -19,11 +19,7 @@ module.exports = (robot) ->
   robot.router.post '/brian/screenshot/:room', (req, res) ->
     room = req.params.room
 
-    console.log "SCREENSHOTS: got #{req}, #{res}"
-
-    data = JSON.parse res.body.payload
-    console.log "SCREENSHOTS: parsed to: #{data}"
-
+    data = JSON.parse req.body.payload
     screenshots = data.screenshots ? []
 
     for screenshot in screenshots
@@ -31,6 +27,11 @@ module.exports = (robot) ->
 
       if screenshot_url
         robot.messageRoom room, "#{screenshot.url} in #{screenshot.browser} #{screenshot.browser_version} running under #{screenshot.os} #{screenshot.os_version}: \n#{screenshot_url}"
+
+    robot.messageRoom room, "Done."
+
+    res.writeHead 204, { 'Content-Length': 0 }
+    res.end()
 
   robot.respond /screenshot( me)? (.*?) under (.*)/i, (msg) ->
     try
@@ -50,5 +51,4 @@ screenshotMe = (msg, url, browser_dict, cb) ->
   msg.http(api_url)
     .auth(username, api_key)
     .post(QS.stringify(q)) (err, res, body) ->
-      console.log res, body
       cb()
