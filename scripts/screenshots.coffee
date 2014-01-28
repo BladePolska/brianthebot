@@ -37,15 +37,15 @@ module.exports = (robot) ->
       msg.send "'#{msg.match[3]}' must be a valid JS dictionary, '{\"os\": \"Windows\", \"os_version\": \"7\", \"browser_version\": \"8.0\", \"browser\": \"ie\"}' is a great example."
       return
 
-    msg.send "Fetching the screenshots..."
     screenshotMe msg, msg.match[2], browser_dict, () ->
-      msg.send "Fetching the screenshots..."
+      msg.send "Fetching the screenshots (it will take a while, be patient!)..."
 
 screenshotMe = (msg, url, browser_dict, cb) ->
   room = msg[0]
   callback_url = "#{brian_host}/brian/screenshot/#{room}"
 
   q = browsers: [browser_dict], url: url, callback_url:callback_url
+  console.log q, room
   msg.http(api_url)
     .query(q)
     .auth(username, api_key)
