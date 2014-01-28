@@ -11,12 +11,16 @@ api_url    = 'http://www.browserstack.com/screenshots'
 username   = process.env.HUBOT_BROWSERSTACK_USERNAME
 api_key    = process.env.HUBOT_BROWSERSTACK_API_KEY
 
-brian_host = process.env.HUBOT_HOSTNAME
+brian_host = process.env.HEROKU_URL
 
 module.exports = (robot) ->
   robot.router.post '/brian/screenshot/:room', (req, res) ->
     room = req.params.room
-    data = JSON.parse req.body.payload
+
+    console.log "SCREENSHOTS: got #{req}, #{res}"
+
+    data = JSON.parse res.body.payload
+    console.log "SCREENSHOTS: parsed to: #{data}"
 
     screenshots = data.screenshots ? []
 
@@ -33,6 +37,7 @@ module.exports = (robot) ->
       msg.send "'#{msg.match[3]}' must be a valid JS dictionary, '{\"os\": \"Windows\", \"os_version\": \"7\", \"browser_version\": \"8.0\", \"browser\": \"ie\"}' is a great example."
       return
 
+    msg.send "Fetching the screenshots..."
     screenshotMe msg, msg.match[2], browser_dict, () ->
       msg.send "Fetching the screenshots..."
 
