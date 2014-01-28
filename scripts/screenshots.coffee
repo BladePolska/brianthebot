@@ -45,10 +45,8 @@ screenshotMe = (msg, url, browser_dict, cb) ->
   callback_url = "#{brian_host}/brian/screenshot/#{room}"
 
   q = browsers: [browser_dict], url: url, callback_url:callback_url
-  console.log q, room
   msg.http(api_url)
-    .query(q)
     .auth(username, api_key)
-    .post() (err, res, body) ->
+    .post(QS.stringify(q)) (err, res, body) ->
       console.log res, body
       cb()
