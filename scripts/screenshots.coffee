@@ -50,4 +50,5 @@ screenshotMe = (msg, url, browser_dict, cb) ->
     .query(q)
     .auth(username, api_key)
     .get() (err, res, body) ->
+      console.log res, body
       cb()
